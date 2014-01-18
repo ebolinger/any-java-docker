@@ -2,9 +2,9 @@ FROM griff/oracle-jdk7
 
 MAINTAINER Eric Bolinger "boli@pobox.com"
 
-USER	daemon
+# Use the 'foreman' Ruby app to launch from a Procfile, see start.sh
+# For DEV: apt-get -y install curl wget man
 
-# Use the 'foreman' app to launch from a Procfile
 RUN	apt-get -y install rubygems && gem install foreman
 
 VOLUME	["/data", "/logs"]
@@ -15,6 +15,8 @@ WORKDIR	/opt/local/app
 
 # Apply any important files.  Any file is fair game.
 ADD	rootdir /
+
+USER	daemon
 
 CMD	["bin/start.sh"]
 
