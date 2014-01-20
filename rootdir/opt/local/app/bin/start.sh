@@ -21,7 +21,7 @@ echo "file: $file"
 echo "pwd: $PWD"
 
 # Only supports ZIP file for now, need to extract WAR as well
-/bin/jar xvf $file
+/usr/bin/jar xvf $file
 
 /usr/local/bin/foreman start
 
